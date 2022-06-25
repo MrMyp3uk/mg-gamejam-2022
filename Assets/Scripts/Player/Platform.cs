@@ -22,12 +22,12 @@ namespace Player
 
         private void Move()
         {
-            // var translate = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
-            // var newPosition = transform.position + new Vector3(translate, 0, 0);        
+            var translate = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
+            var newPosition = transform.position + new Vector3(translate, 0, 0);        
 
-            var mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-            var translate = (mousePos.x - transform.position.x) * Time.deltaTime * _speed;
-            var newPosition = transform.position + new Vector3(translate, 0, 0);
+            // var mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+            // var translate = (mousePos.x - transform.position.x) * Time.deltaTime * _speed;
+            // var newPosition = transform.position + new Vector3(translate, 0, 0);
         
             _rb.MovePosition(newPosition);
         }
