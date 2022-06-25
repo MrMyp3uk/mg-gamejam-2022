@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/polygon.unity
+    guid: cea7ca8ad0882cd48baaf4d6d0814672
   m_configObjects: {}
