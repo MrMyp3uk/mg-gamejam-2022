@@ -20,13 +20,13 @@ namespace Player
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             var magnitude = _rb.velocity.magnitude;
 
             if (magnitude > _maxSpeed)
             {
-                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity, _maxSpeed);
+                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity, _maxSpeed-1);
             }
             
             _rb.angularVelocity = magnitude * 13;
