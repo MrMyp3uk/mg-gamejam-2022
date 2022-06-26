@@ -23,11 +23,6 @@ namespace Player
             Move();
         }
 
-        // public void MoveTo(Vector2 pos)
-        // {
-        //     
-        // }
-
         private void Move()
         {
             var newPosition = transform.position;

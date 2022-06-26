@@ -1,5 +1,7 @@
-using System;
 using Level;
+using Level.Interactable;
+using Level.Interactable.Buffs;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player
@@ -53,6 +55,7 @@ namespace Player
             platform.x = pos.x;
             _platform.position = platform;
         }
+        
 
         public void Impulse()
         {
@@ -64,6 +67,21 @@ namespace Player
             var force = _impulseForce * scale;
             _rb.AddForce(_rb.velocity.normalized * force, ForceMode2D.Impulse);
 
+        }
+
+        public void Buff(BuffTarget target, float value, float time)
+        {
+            switch (target)
+            {
+                case BuffTarget.BallSize:
+                    Resize(value, time);
+                    break;
+                case BuffTarget.PlatformSize:
+                    ResizePlatform(value, time);
+                    break;
+                default:
+                    return;
+            }
         }
 
         public void Finish()
@@ -83,6 +101,30 @@ namespace Player
             {
                 _checkPoint = new Vector2(npcPlatform.transform.position.x, 5);
             }
+        }
+
+        private void Resize(float value, float time)
+        {
+            if (transform.TryGetComponent<ResizerBuff>(out var resizer))
+            {
+                resizer.UpdateBuff(value, time);
+                return;
+            }
+
+            var newResizer = transform.AddComponent<ResizerBuff>();
+            newResizer.Init(value, time);
+        }
+
+        private void ResizePlatform(float value, float time)
+        {
+            if (_platform.TryGetComponent<ResizerBuff>(out var resizer))
+            {
+                resizer.UpdateBuff(value, time);
+                return;
+            }
+
+            var newResizer = _platform.AddComponent<ResizerBuff>();
+            newResizer.Init(value, time);
         }
     }
 }
