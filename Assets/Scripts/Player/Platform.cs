@@ -12,6 +12,9 @@ namespace Player
         private Rigidbody2D _rb;
         private Camera _camera;
 
+        private float _leftSide = -11;
+        private float _rightSide = 92;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -40,6 +43,7 @@ namespace Player
             }
 
 
+            newPosition.x = Mathf.Clamp(newPosition.x, _leftSide, _rightSide);
             _rb.MovePosition(newPosition);
         }
 

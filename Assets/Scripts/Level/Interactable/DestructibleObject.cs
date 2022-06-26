@@ -5,14 +5,13 @@ namespace Level.Interactable
 {
     public class DestructibleObject : MonoBehaviour
     {
-        [SerializeField]
-        private int _counterAllHits;
+        [SerializeField] private int _counterAllHits;
 
-        [Space]
-        [SerializeField]
-        private Sprite _brokenSprite;
-        [SerializeField]
-        private int _counterHitsToBroken;
+        [Space] [SerializeField] private Sprite _brokenSprite;
+        [SerializeField] private int _counterHitsToBroken;
+
+        [Space] [SerializeField] private Transform _afterDestructionObject;
+        [SerializeField] private float _timelifeAfterObject = 3f;
 
         private SpriteRenderer _renderer;
         private bool _isBroken;
@@ -42,7 +41,7 @@ namespace Level.Interactable
 
             if (_hits >= _counterAllHits)
             {
-                gameObject.SetActive(false);
+                Destruct();
             }
 
             if (_isBroken == false && _hits >= _counterHitsToBroken)
@@ -59,6 +58,17 @@ namespace Level.Interactable
             }
 
             _isBroken = true;
+        }
+
+        private void Destruct()
+        {
+            gameObject.SetActive(false);
+            
+            if (_afterDestructionObject != null)
+            {
+                var afterObject = Instantiate(_afterDestructionObject, transform.position, Quaternion.identity);
+                Destroy(afterObject, _timelifeAfterObject);
+            }
         }
     }
 }
