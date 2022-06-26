@@ -62,14 +62,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.64705884, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.7703066, g: 0.8962264, b: 0.46932748, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 13aafbe1f6e4a724a9c203b739fe83e3, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -147,8 +147,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B \u043F\u043E\u0431\u0435\u0434\u0438\u043B\u0438!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
+  m_sharedMaterial: {fileID: -3519789593736831592, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.75
+  m_fontSize: 50.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -305,10 +305,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3417002314528074815, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417002314528074815, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417002314528074815, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7114986
+      objectReference: {fileID: 0}
     - target: {fileID: 4169607058959141843, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
       propertyPath: m_text
       value: "\u0417\u0430\u043D\u043E\u0432\u043E"
       objectReference: {fileID: 0}
+    - target: {fileID: 4169607058959141843, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
+    - target: {fileID: 4169607058959141843, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3519789593736831592, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
     - target: {fileID: 8404958911826888310, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
       propertyPath: m_Name
       value: RetryButton
@@ -411,10 +431,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3417002314528074815, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_Color.b
+      value: 0.25951976
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417002314528074815, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9776088
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417002314528074815, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4169607058959141843, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
       propertyPath: m_text
       value: "\u0412 \u043B\u043E\u0431\u0431\u0438"
       objectReference: {fileID: 0}
+    - target: {fileID: 4169607058959141843, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
+    - target: {fileID: 4169607058959141843, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3519789593736831592, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
     - target: {fileID: 8404958911826888310, guid: 061c8aaf531fd0b44bd6b45cabdbcf49, type: 3}
       propertyPath: m_Name
       value: LobbyButton
