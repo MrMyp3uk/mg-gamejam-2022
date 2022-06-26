@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Level.Interactable;
 using Unity.VisualScripting;
@@ -14,12 +15,32 @@ namespace Level
         private Transform _border;
         [SerializeField]
         private Transform _cageBottom;
+        
         private void Awake()
         {
             _animator = GetComponent<Animator>();
         }
 
-        private void StartGame()
+        private void OnEnable()
+        {
+            GameLifecycle.OnPhaseChanged += OnGamePhaseChanged;
+        }
+
+        private void OnDisable()
+        {
+            GameLifecycle.OnPhaseChanged -= OnGamePhaseChanged;
+
+        }
+
+        private void OnGamePhaseChanged(GamePhase phase)
+        {
+            if (phase == GamePhase.Started)
+            {
+                StartCage();
+            }
+        }
+
+        private void StartCage()
         {
             _animator.SetTrigger(OpenTrigger);
             
@@ -37,12 +58,12 @@ namespace Level
 
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartGame();
-            }
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.Space))
+        //     {
+        //         StartGame();
+        //     }
+        // }
     }
 }
