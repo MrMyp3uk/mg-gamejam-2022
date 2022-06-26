@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 520, y: 80}
+  m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3654440449575240065
 CanvasRenderer:
@@ -66,10 +66,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0413\u043E\u043D\u043A\u0430 \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u0442\u0441\u044F!"
+  m_text: Get ready!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
-  m_sharedMaterial: {fileID: -3519789593736831592, guid: 5721fc0afa250c24ab28e8a6e42183f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 12b66a380196aa64889c0a5b5ea34af8, type: 2}
+  m_sharedMaterial: {fileID: 4001877657950702427, guid: 12b66a380196aa64889c0a5b5ea34af8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -80,10 +80,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 0.69247085, b: 0, a: 1}
-    bottomRight: {r: 1, g: 0.69247085, b: 0, a: 1}
+    topLeft: {r: 1, g: 0.80729437, b: 0, a: 1}
+    topRight: {r: 1, g: 0.80729437, b: 0, a: 1}
+    bottomLeft: {r: 1, g: 0.47028917, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.47028917, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -93,12 +93,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.5
+  m_fontSize: 96
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 96
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
