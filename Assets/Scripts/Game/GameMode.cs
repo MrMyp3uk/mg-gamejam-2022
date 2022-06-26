@@ -14,6 +14,8 @@ public interface IGameMode
 
     RaceResult Result { get; }
 
+    public float RaceTime { get; }
+
     void StartRace();
 
     void Finish(bool isPlayer);
@@ -28,6 +30,8 @@ public class EmptyGameMode : IGameMode
     public GamePhase Phase => GamePhase.NotStarted;
 
     public RaceResult Result => RaceResult.Unknown;
+
+    public float RaceTime => 0;
 
     private EmptyGameMode()
     {
@@ -72,6 +76,8 @@ public class GameMode : MonoBehaviour, IGameMode
 
     public RaceResult Result { get; private set; }
 
+    public float RaceTime { get; private set; }
+
     public void StartRace()
     {
         if (Phase == GamePhase.Starting)
@@ -105,6 +111,14 @@ public class GameMode : MonoBehaviour, IGameMode
         if (Phase == GamePhase.NotStarted)
         {
             Phase = GamePhase.Starting;
+        }
+    }
+
+    private void Update()
+    {
+        if (Phase == GamePhase.Started)
+        {
+            RaceTime += Time.deltaTime;
         }
     }
 
