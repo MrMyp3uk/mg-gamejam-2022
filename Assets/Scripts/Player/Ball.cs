@@ -1,3 +1,4 @@
+using System;
 using Level;
 using Level.Interactable;
 using Level.Interactable.Buffs;
@@ -20,6 +21,9 @@ namespace Player
         private Rigidbody2D _rb;
 
         private Vector2 _checkPoint = Vector2.zero;
+        
+        private PlayerStats _stats = new PlayerStats();
+        public PlayerStats Stats => _stats;
 
         private void Awake()
         {
@@ -38,6 +42,43 @@ namespace Player
             _rb.angularVelocity = magnitude * 13;
         }
 
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            Collision(col.collider);
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            Collision(col);
+        }
+
+        private void Collision(Collider2D col)
+        {
+            if (col.transform.TryGetComponent<Platform>(out var platform))
+            {
+                _checkPoint = new Vector2(platform.transform.position.x, 5);
+                _stats.Jump();
+                return;
+            }
+            
+            if (col.transform.TryGetComponent<NpcPlatform>(out var npcPlatform))
+            {
+                _checkPoint = new Vector2(npcPlatform.transform.position.x, 5);
+                _stats.Jump();
+                return;
+            }
+            
+            if (col.transform.TryGetComponent<Ball>(out var ball))
+            {
+                _stats.CollisionOtherBall();
+                return;
+            }
+
+            _stats.CollisionLevelItem();
+
+            Debug.Log(name + ": \n"+ _stats.ToString());
+        }
+
         public void Reset()
         {
             // var pos = _checkPoint;
@@ -54,8 +95,10 @@ namespace Player
             var platform = _platform.position;
             platform.x = pos.x;
             _platform.position = platform;
+            
+            _stats.Death();
         }
-        
+
 
         public void Impulse()
         {
@@ -88,19 +131,6 @@ namespace Player
         {
             _platform.gameObject.SetActive(false);
             gameObject.SetActive(false);
-        }
-
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.transform.TryGetComponent<Platform>(out var platform))
-            {
-                _checkPoint = new Vector2(platform.transform.position.x, 5);
-            }
-            
-            if (col.transform.TryGetComponent<NpcPlatform>(out var npcPlatform))
-            {
-                _checkPoint = new Vector2(npcPlatform.transform.position.x, 5);
-            }
         }
 
         private void Resize(float value, float time)
