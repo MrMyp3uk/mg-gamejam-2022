@@ -1,3 +1,4 @@
+using System;
 using Level;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ namespace Player
         private float _impulseForce;
     
         private Rigidbody2D _rb;
+
+        private Vector2 _checkPoint = Vector2.zero;
 
         private void Awake()
         {
@@ -35,8 +38,15 @@ namespace Player
 
         public void Reset()
         {
+            // var pos = _checkPoint;
+            var spawnPos = Spawner.GetSpawnPosition();
+            // if (_checkPoint == Vector2.zero)
+            // {
+            // }
+
+            var pos = spawnPos.x > _checkPoint.x ? spawnPos : _checkPoint;
+
             _rb.velocity = Vector2.zero;
-            var pos = Spawner.GetSpawnPosition();
 
             transform.position = pos;
             var platform = _platform.position;
@@ -53,6 +63,19 @@ namespace Player
         {
             _platform.gameObject.SetActive(false);
             gameObject.SetActive(false);
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.transform.TryGetComponent<Platform>(out var platform))
+            {
+                _checkPoint = new Vector2(platform.transform.position.x, 5);
+            }
+            
+            if (col.transform.TryGetComponent<NpcPlatform>(out var npcPlatform))
+            {
+                _checkPoint = new Vector2(npcPlatform.transform.position.x, 5);
+            }
         }
     }
 }
