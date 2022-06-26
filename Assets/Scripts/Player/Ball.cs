@@ -59,6 +59,13 @@ namespace Player
             _rb.AddForce(_rb.velocity.normalized * _impulseForce, ForceMode2D.Impulse);
         }
 
+        public void Impulse(float scale)
+        {
+            var force = _impulseForce * scale;
+            _rb.AddForce(_rb.velocity.normalized * force, ForceMode2D.Impulse);
+
+        }
+
         public void Finish()
         {
             _platform.gameObject.SetActive(false);

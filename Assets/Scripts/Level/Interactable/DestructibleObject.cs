@@ -1,8 +1,7 @@
-using System;
 using Player;
 using UnityEngine;
 
-namespace Level
+namespace Level.Interactable
 {
     public class DestructibleObject : MonoBehaviour
     {
