@@ -6,8 +6,6 @@ public class AnnouncerController : MonoBehaviour
 {
     [SerializeField] private TMP_Text _announce;
     [SerializeField] private float _countdownDelay = 2;
-    [SerializeField] private string _getReadyText = "Гонка начинается!";
-    [SerializeField] private string _goText = "Вперед!";
 
     private Coroutine _pendingCoroutine;
 
@@ -42,7 +40,7 @@ public class AnnouncerController : MonoBehaviour
     private IEnumerator BeginRaceAnnounce()
     {
         _announce.gameObject.SetActive(true);
-        _announce.text = _getReadyText;
+        _announce.text = "Get ready!";
         yield return new WaitForSeconds(_countdownDelay);
 
         for (var i = 3; i > 0; i--)
@@ -51,7 +49,7 @@ public class AnnouncerController : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        _announce.text = _goText;
+        _announce.text = "Go!";
         GameLifecycle.GameMode.StartRace();
         yield return new WaitForSeconds(1f);
 
