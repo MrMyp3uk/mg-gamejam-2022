@@ -13,7 +13,7 @@ namespace Player
         private Camera _camera;
 
         private float _leftSide = -11;
-        private float _rightSide = 92;
+        private float _rightSide = 191;
 
         private void Awake()
         {
@@ -53,6 +53,11 @@ namespace Player
             {
                 ball.Impulse();
             }
+        }
+
+        public void DecreaseLeftSide(float value)
+        {
+            _leftSide += value;
         }
     }
 }

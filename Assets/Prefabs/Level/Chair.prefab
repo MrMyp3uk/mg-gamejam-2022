@@ -147,5 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterAllHits: 3
-  _brokenSprite: {fileID: 0}
+  _brokenSprite: {fileID: 21300000, guid: 72449a92f0d62dc418fea7bdd514b7e6, type: 3}
   _counterHitsToBroken: 0
+  _afterDestructionObject: {fileID: 0}
+  _timelifeAfterObject: 3

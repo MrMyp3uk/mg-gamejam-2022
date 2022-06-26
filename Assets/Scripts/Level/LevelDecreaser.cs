@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 
 namespace Level
@@ -14,12 +15,15 @@ namespace Level
         [SerializeField]
         private float _decreaseSpeed;
         
-        private PolygonCollider2D _collider;
+        [SerializeField]
+        private Transform _border;
+
+        [SerializeField] private Platform _platform;
 
 
         private void Awake()
         {
-            _collider = GetComponent<PolygonCollider2D>();
+            // _collider = GetComponent<PolygonCollider2D>();
         }
 
         private void Update()
@@ -45,8 +49,9 @@ namespace Level
         {
             var translate = Time.deltaTime * _decreaseSpeed;
             _backWall.position += new Vector3(translate, 0, 0);
-            _collider.offset = new Vector2(_collider.offset.x + translate, 0);
+            _border.position = new Vector2(_border.position.x + translate, 0);
 
+            _platform.DecreaseLeftSide(translate);
         }
     }
 }
