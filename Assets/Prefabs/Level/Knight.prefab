@@ -140,3 +140,5 @@ MonoBehaviour:
   _counterAllHits: 5
   _brokenSprite: {fileID: 21300000, guid: 43b83cdc53b1b504b8f38af926389760, type: 3}
   _counterHitsToBroken: 2
+  _afterDestructionObject: {fileID: 2861382202677408701, guid: 3074cbecd44e8a3429c5a72aa4758dc6, type: 3}
+  _timelifeAfterObject: 3
