@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using Level;
 using Level.Interactable;
 using Level.Interactable.Buffs;
@@ -9,25 +9,24 @@ namespace Player
 {
     public class Ball : MonoBehaviour
     {
-        [SerializeField]
-        private Transform _platform;
-    
-        [SerializeField]
-        private float _maxSpeed;
+        [SerializeField] private Transform _platform;
 
-        [SerializeField]
-        private float _impulseForce;
-    
+        [SerializeField] private float _maxSpeed;
+
+        [SerializeField] private float _impulseForce;
+
         private Rigidbody2D _rb;
+        private SpriteRenderer _render;
 
         private Vector2 _checkPoint = Vector2.zero;
-        
+
         private PlayerStats _stats = new PlayerStats();
         public PlayerStats Stats => _stats;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _render = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -36,9 +35,9 @@ namespace Player
 
             if (magnitude > _maxSpeed)
             {
-                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity, _maxSpeed-1);
+                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity, _maxSpeed - 1);
             }
-            
+
             _rb.angularVelocity = magnitude * 13;
         }
 
@@ -56,18 +55,18 @@ namespace Player
         {
             if (col.transform.TryGetComponent<Platform>(out var platform))
             {
-                _checkPoint = new Vector2(platform.transform.position.x, 5);
+                _checkPoint = new Vector2(platform.transform.position.x, 2);
                 _stats.Jump();
                 return;
             }
-            
+
             if (col.transform.TryGetComponent<NpcPlatform>(out var npcPlatform))
             {
-                _checkPoint = new Vector2(npcPlatform.transform.position.x, 5);
+                _checkPoint = new Vector2(npcPlatform.transform.position.x, 2);
                 _stats.Jump();
                 return;
             }
-            
+
             if (col.transform.TryGetComponent<Ball>(out var ball))
             {
                 _stats.CollisionOtherBall();
@@ -81,11 +80,7 @@ namespace Player
 
         public void Reset()
         {
-            // var pos = _checkPoint;
             var spawnPos = Spawner.GetSpawnPosition();
-            // if (_checkPoint == Vector2.zero)
-            // {
-            // }
 
             var pos = spawnPos.x > _checkPoint.x ? spawnPos : _checkPoint;
 
@@ -95,10 +90,38 @@ namespace Player
             var platform = _platform.position;
             platform.x = pos.x;
             _platform.position = platform;
-            
+
             _stats.Death();
+
+            StartCoroutine(ResetWaiting());
         }
 
+        private IEnumerator ResetWaiting()
+        {
+            _rb.simulated = false;
+            _render.color = new Color(1, 1, 1, 0.5f);
+
+            yield return new WaitForSeconds(0.1f);
+
+            _render.color = new Color(1, 1, 1, 1f);
+            
+            yield return new WaitForSeconds(0.1f);
+            
+            _render.color = new Color(1, 1, 1, 0.5f);
+
+            yield return new WaitForSeconds(0.1f);
+            
+            _render.color = new Color(1, 1, 1, 1f);
+            
+            yield return new WaitForSeconds(0.1f);
+            
+            _render.color = new Color(1, 1, 1, 0.5f);
+
+            yield return new WaitForSeconds(0.1f);
+
+            _render.color = new Color(1, 1, 1, 1);
+            _rb.simulated = true;
+        }
 
         public void Impulse()
         {
@@ -109,7 +132,6 @@ namespace Player
         {
             var force = _impulseForce * scale;
             _rb.AddForce(_rb.velocity.normalized * force, ForceMode2D.Impulse);
-
         }
 
         public void Buff(BuffTarget target, float value, float time)
