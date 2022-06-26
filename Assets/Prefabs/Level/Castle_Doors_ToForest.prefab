@@ -149,6 +149,8 @@ MonoBehaviour:
   _counterAllHits: 8
   _brokenSprite: {fileID: 0}
   _counterHitsToBroken: 0
+  _afterDestructionObject: {fileID: 0}
+  _timelifeAfterObject: 3
 --- !u!1 &4131068819210074702
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +247,6 @@ GameObject:
   - component: {fileID: 7144872261921137798}
   - component: {fileID: 5869133503382204002}
   - component: {fileID: 5869133503382204003}
-  - component: {fileID: 5869133503382204028}
   m_Layer: 0
   m_Name: Castle_Doors_ToForest
   m_TagString: Untagged
@@ -370,21 +371,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.17, y: 3.04}
   m_EdgeRadius: 0
---- !u!114 &5869133503382204028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5094531115516130004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35f0108539e76c46bafbaa9d9a3a2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterAllHits: 6
-  _brokenSprite: {fileID: 0}
-  _counterHitsToBroken: 0
 --- !u!1 &6524910559252967722
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,3 +520,5 @@ MonoBehaviour:
   _counterAllHits: 10
   _brokenSprite: {fileID: 0}
   _counterHitsToBroken: 0
+  _afterDestructionObject: {fileID: 0}
+  _timelifeAfterObject: 3

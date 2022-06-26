@@ -67,7 +67,7 @@ namespace Level.Interactable
             if (_afterDestructionObject != null)
             {
                 var afterObject = Instantiate(_afterDestructionObject, transform.position, Quaternion.identity);
-                Destroy(afterObject, _timelifeAfterObject);
+                Destroy(afterObject.gameObject, _timelifeAfterObject);
             }
         }
     }

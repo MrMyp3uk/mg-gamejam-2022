@@ -7,12 +7,12 @@ namespace Level
         private static Spawner Instance;
         public static Vector2 GetSpawnPosition()
         {
-            // var x = Instance.transform.position.x + Random.Range(-Instance._width, Instance._width);
-            // var y = Instance.transform.position.y;
+            var x = Instance.transform.position.x + Random.Range(-Instance._width, Instance._width);
+            var y = Instance.transform.position.y;
             
-            // return new Vector2(x, y);
+            return new Vector2(x, y);
             
-            return Vector2.zero;
+            // return Vector2.zero;
         }
 
         private void Awake()
