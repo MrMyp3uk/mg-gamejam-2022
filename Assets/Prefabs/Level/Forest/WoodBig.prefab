@@ -123,7 +123,7 @@ MonoBehaviour:
   _counterAllHits: 3
   _brokenSprite: {fileID: 0}
   _counterHitsToBroken: 0
-  _afterDestructionObject: {fileID: 8914022426168031887, guid: 86b1fcd3f1c36e3428388d8ef2702deb, type: 3}
+  _afterDestructionObject: {fileID: 1061062303825238057, guid: ec564f71d1221884ca621cf2997a109a, type: 3}
   _timelifeAfterObject: 3
 --- !u!61 &3630644556557327651
 BoxCollider2D:
