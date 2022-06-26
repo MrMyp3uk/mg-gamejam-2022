@@ -4,7 +4,10 @@ namespace Player
 {
     public class Platform : MonoBehaviour
     {
-        [SerializeField] private float _speed;
+        [SerializeField] private float _mouseSpeed;
+        [SerializeField] private float _keyboardSpeed;
+
+        [SerializeField] private bool _mouseControl;
 
         private Rigidbody2D _rb;
         private Camera _camera;
@@ -24,16 +27,24 @@ namespace Player
         // {
         //     
         // }
-        
+
         private void Move()
         {
-            var translate = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
-            var newPosition = transform.position + new Vector3(translate, 0, 0);        
+            var newPosition = transform.position;
+            
+            if (_mouseControl)
+            {
+                var mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+                var translate = (mousePos.x - transform.position.x) * Time.deltaTime * _mouseSpeed;
+                newPosition = transform.position + new Vector3(translate, 0, 0);
+            }
+            else
+            {
+                var translate = Input.GetAxis("Horizontal") * _keyboardSpeed * Time.deltaTime;
+                newPosition = transform.position + new Vector3(translate, 0, 0);
+            }
 
-            // var mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-            // var translate = (mousePos.x - transform.position.x) * Time.deltaTime * _speed;
-            // var newPosition = transform.position + new Vector3(translate, 0, 0);
-        
+
             _rb.MovePosition(newPosition);
         }
 
