@@ -9,6 +9,8 @@ namespace Player
 {
     public class Ball : MonoBehaviour
     {
+        public bool IsPlayer;
+        
         [SerializeField] private Transform _platform;
 
         [SerializeField] private float _maxSpeed;

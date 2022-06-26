@@ -11,7 +11,11 @@ namespace Level
             {
                 ball.Finish();
                 // TODO: Check if actually player reached the finish
-                GameLifecycle.GameMode.Finish(true);
+
+                if (ball.IsPlayer)
+                {
+                    GameLifecycle.GameMode.Finish(true);
+                }
             }
         }
     }
