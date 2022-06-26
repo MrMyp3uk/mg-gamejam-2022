@@ -1,3 +1,4 @@
+using System;
 using Player;
 using UnityEngine;
 
@@ -6,26 +7,54 @@ namespace Level.Interactable
     public class DestructibleObject : MonoBehaviour
     {
         [SerializeField]
-        private int _counterHits;
+        private int _counterAllHits;
+
+        [Space]
+        [SerializeField]
+        private Sprite _brokenSprite;
+        [SerializeField]
+        private int _counterHitsToBroken;
+
+        private SpriteRenderer _renderer;
+        private bool _isBroken;
+        private int _hits;
+
+        private void Awake()
+        {
+            _renderer = GetComponent<SpriteRenderer>();
+        }
 
         private void OnCollisionEnter2D(Collision2D col)
         {
             if (col.transform.TryGetComponent<Ball>(out var ball))
             {
-                DecreaseCounter();
+                Hit();
             }
         }
 
-        private void DecreaseCounter()
+        private void Hit()
         {
-            _counterHits--;
+            _hits++;
 
-            if (_counterHits > 0)
+            if (_hits >= _counterAllHits)
             {
-                return;
+                gameObject.SetActive(false);
             }
-            
-            gameObject.SetActive(false);
+
+            if (_isBroken == false && _hits >= _counterHitsToBroken)
+            {
+                Break();
+            }
+        }
+
+        private void Break()
+        {
+            if (_brokenSprite != null)
+            {
+                _renderer.sprite = _brokenSprite;
+            }
+
+            _isBroken = true;
         }
     }
 }
