@@ -20,6 +20,11 @@ namespace Player
             Move();
         }
 
+        // public void MoveTo(Vector2 pos)
+        // {
+        //     
+        // }
+        
         private void Move()
         {
             var translate = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;

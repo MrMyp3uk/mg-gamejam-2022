@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8574623015620055685}
   - component: {fileID: 6332187872260487832}
-  - component: {fileID: 476892547173974354}
   - component: {fileID: 7131606319114613588}
+  - component: {fileID: 476892547173974354}
   m_Layer: 0
-  m_Name: "\u0420\u044B\u0446\u0430\u0440\u044C"
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &476892547173974354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8218683092176540164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35f0108539e76c46bafbaa9d9a3a2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterHits: 3
 --- !u!68 &7131606319114613588
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -138,3 +125,16 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &476892547173974354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218683092176540164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35f0108539e76c46bafbaa9d9a3a2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _counterHits: 3

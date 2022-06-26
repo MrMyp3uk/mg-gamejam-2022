@@ -1,3 +1,4 @@
+using Level;
 using UnityEngine;
 
 namespace Player
@@ -35,8 +36,12 @@ namespace Player
         public void Reset()
         {
             _rb.velocity = Vector2.zero;
+            var pos = Spawner.GetSpawnPosition();
 
-            transform.position = new Vector3(_platform.position.x, 3, 0);
+            transform.position = pos;
+            var platform = _platform.position;
+            platform.x = pos.x;
+            _platform.position = platform;
         }
 
         public void Impulse()
