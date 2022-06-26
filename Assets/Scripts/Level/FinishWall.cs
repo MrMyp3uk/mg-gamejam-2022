@@ -1,4 +1,3 @@
-using System;
 using Player;
 using UnityEngine;
 
@@ -11,6 +10,8 @@ namespace Level
             if (col.transform.TryGetComponent<Ball>(out var ball))
             {
                 ball.Finish();
+                // TODO: Check if actually player reached the finish
+                GameLifecycle.GameMode.Finish(true);
             }
         }
     }
