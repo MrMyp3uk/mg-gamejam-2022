@@ -358,8 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueWindow: {fileID: 13115966598235211}
   _dialogueText: {fileID: 2726577771743777099}
-  _victoryMessage: "\u0412\u044B \u043F\u043E\u0431\u0435\u0434\u0438\u043B\u0438!"
-  _defeatMessage: "\u0412\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B\u0438!"
+  _victoryMessage: Victory!
+  _defeatMessage: Defeat!
   _restartButton: {fileID: 5660593666390208854}
   _gameOverButton: {fileID: 7406353781974875909}
 --- !u!1001 &1234960934364153409

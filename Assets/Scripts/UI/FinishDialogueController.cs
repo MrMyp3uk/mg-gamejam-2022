@@ -6,8 +6,8 @@ public class FinishDialogueController : MonoBehaviour
 {
     [SerializeField] private GameObject _dialogueWindow;
     [SerializeField] private TMP_Text _dialogueText;
-    [SerializeField] private string _victoryMessage = "Вы победили!";
-    [SerializeField] private string _defeatMessage = "Вы проиграли!";
+    [SerializeField] private string _victoryMessage = "Victory!";
+    [SerializeField] private string _defeatMessage = "Defeat!";
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _gameOverButton;
 

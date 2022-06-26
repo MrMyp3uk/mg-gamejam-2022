@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainGuiController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _currentScreen;
+    [SerializeField] private GameObject _currentScreen;
+    [SerializeField] private string _levelSceneName;
 
     public void SwitchToScreen(GameObject screen)
     {
@@ -19,7 +19,7 @@ public class MainGuiController : MonoBehaviour
 
     public void PlayLevel()
     {
-        SceneManager.LoadScene("polygon");
+        SceneManager.LoadScene(_levelSceneName);
     }
 
     public void QuitGame()
