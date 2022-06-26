@@ -76,7 +76,7 @@ namespace Player
 
             _stats.CollisionLevelItem();
 
-            Debug.Log(name + ": \n"+ _stats.ToString());
+            // Debug.Log(name + ": \n"+ _stats.ToString());
         }
 
         public void Reset()

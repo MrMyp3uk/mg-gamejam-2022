@@ -1,4 +1,3 @@
-using System;
 using Player;
 using UnityEngine;
 
@@ -18,6 +17,11 @@ namespace Level.Interactable
         private SpriteRenderer _renderer;
         private bool _isBroken;
         private int _hits;
+
+        public void Init(int countHits)
+        {
+            _counterAllHits = countHits;
+        }
 
         private void Awake()
         {
