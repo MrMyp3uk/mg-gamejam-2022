@@ -10,6 +10,7 @@ public class FinishDialogueController : MonoBehaviour
     [SerializeField] private string _defeatMessage = "Defeat!";
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _gameOverButton;
+    [SerializeField] private Animator _victoryAnim;
 
     public void Test()
     {
@@ -36,6 +37,7 @@ public class FinishDialogueController : MonoBehaviour
             switch (GameLifecycle.GameMode.Result)
             {
                 case RaceResult.Victory:
+                    _victoryAnim.SetTrigger("Victory");
                     ShowDialogue(_victoryMessage);
                     break;
 
